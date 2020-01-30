@@ -1,0 +1,4 @@
+senders:
+  telegram:
+    username_or_userid: 23333
+    bot_token: 23333:token
