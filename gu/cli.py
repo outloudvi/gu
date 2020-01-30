@@ -2,6 +2,7 @@ from gu.config import read_config
 from argparse import ArgumentParser
 from importlib import import_module
 from gu import sender
+import sys
 
 CONFIG = {
     "globals": {
@@ -45,9 +46,11 @@ def main():
             sender, sender_name.capitalize() + "Sender")
     except AttributeError:
         print("[EMERG] No sender named {}".format(sender_name))
+        sys.exit(1)
     send = sender_class_in_use(conf("senders", sender_name, default={}))
     if not send.validateParams():
         print("[EMERG] Bad config for {} sender".format(sender_name))
+        sys.exit(1)
     send.sendText(args.text)
 
 
