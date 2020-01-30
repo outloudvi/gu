@@ -1,4 +1,4 @@
-from gu import config
+from gu.config import read_config
 from argparse import ArgumentParser
 from importlib import import_module
 from gu import sender
@@ -23,10 +23,9 @@ def conf(*arg, default=None):
 
 def prepare(config_filename=""):
     global CONFIG
-    if config_filename == "":
-        CONFIG.update(config.read_config())
+        CONFIG.update(read_config())
     else:
-        CONFIG.update(config.read_config(config_filename))
+        CONFIG.update(read_config(config_filename))
 
 
 def main():
