@@ -28,6 +28,10 @@ globals:
 
 ## Sender settings
 
+### Stdout
+
+(No config here.)
+
 ### Telegram
 
 ``` yaml
