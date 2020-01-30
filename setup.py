@@ -12,7 +12,7 @@ except ImportError:
 
 
 setup(
-    name='gu',
+    name='gu-cli',
     version=__version__,
     description=__description__,
     long_description=open("README.md").read(),
