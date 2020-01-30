@@ -36,10 +36,15 @@ def main():
                         help='text message to send')
     parser.add_argument('--conf', type=str, nargs='?',
                         help='config file to use')
+    parser.add_argument('--sender', type=str, nargs='?', help='sender to use')
     args = parser.parse_args()
     prepare(args.conf)
-    sender_name = conf("globals", "prefer")
-    sender_class_in_use = getattr(sender, sender_name.capitalize() + "Sender")
+    sender_name = args.sender or conf("globals", "prefer")
+    try:
+        sender_class_in_use = getattr(
+            sender, sender_name.capitalize() + "Sender")
+    except AttributeError:
+        print("[EMERG] No sender named {}".format(sender_name))
     send = sender_class_in_use(conf("senders", sender_name, default={}))
     if not send.validateParams():
         print("[EMERG] Bad config for {} sender".format(sender_name))
