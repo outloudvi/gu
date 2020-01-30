@@ -19,7 +19,8 @@ pip install gu-cli
 
 ### Supporting senders
 
-- Telegram
+- stdout
+- telegram
 
 ### License
 
