@@ -23,6 +23,9 @@ setup(
     license='MIT',
     packages=['gu', 'gu.sender'],
     scripts=['bin/gu'],
+    install_requires=[
+        'PyYAML',
+    ],
     classifiers=[
         'Topic :: Communications',
         'Development Status :: 2 - Pre-Alpha',
