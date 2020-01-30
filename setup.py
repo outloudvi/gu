@@ -25,6 +25,7 @@ setup(
     scripts=['bin/gu'],
     install_requires=[
         'PyYAML',
+        'requests'
     ],
     classifiers=[
         'Topic :: Communications',
