@@ -23,6 +23,7 @@ def conf(*arg, default=None):
 
 def prepare(config_filename=""):
     global CONFIG
+    if config_filename == None:
         CONFIG.update(read_config())
     else:
         CONFIG.update(read_config(config_filename))
@@ -33,7 +34,7 @@ def main():
         description='CLI notification / message sending tool')
     parser.add_argument('text', type=str,
                         help='text message to send')
-    parser.add_argument('--conf', type=str, nargs='?', default='',
+    parser.add_argument('--conf', type=str, nargs='?',
                         help='config file to use')
     args = parser.parse_args()
     prepare(args.conf)
