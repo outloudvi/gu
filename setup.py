@@ -24,7 +24,7 @@ setup(
     packages=['gu', 'gu.sender'],
     scripts=['bin/gu'],
     install_requires=[
-        'PyYAML',
+        'PyYAML>5.1',
         'requests'
     ],
     classifiers=[
